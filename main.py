@@ -1,5 +1,5 @@
 from flask import Flask
-from website import createApp
+from src import createApp
 
 app = createApp()
 
