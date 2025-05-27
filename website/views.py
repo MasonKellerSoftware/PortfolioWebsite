@@ -14,3 +14,6 @@ def about():
 def projects():
     return render_template("projects.html")
 
+@views.route('/theme')
+def theme():
+    return render_template("Theme.html")
