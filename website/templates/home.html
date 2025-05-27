@@ -1,6 +1,33 @@
-{%extends "base.html"%}
-{%block title%}Home{%endblock%}
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
 
-{%block body%}
-<h1>Home</h1>
-{%endblock%}
+{% block content %}
+<section class="bg-dark text-light p-5 text-center text-sm-start">
+    <div class="container">
+        <div class="d-sm-flex align-items-center justify-content-between">
+            <div>
+                <h1><span class="text-warning">Mason Keller</span>'s Website
+                </h1>
+                <p style="font-size:16px" class="lead my-3"> Lorem ipsum dolor sit amet, consectetur 
+                    adipiscing elit, sed do eiusmod 
+                    tempor incididunt ut labore et 
+                    dolore magna aliqua. Ut enim ad 
+                    minim veniam, quis nostrud exercitation 
+                    ullamco laboris nisi ut aliquip ex ea 
+                    commodo consequat.
+                </p>
+                <button class="btn btn-primary btn-lg">
+                Contact Me</button>
+            </div>
+
+            <!--Flask function for displaying images-->
+            <img
+              src="{{ url_for('static', filename='ProfilePic.jpg') }}"
+              alt="Silly Dog"
+              class="img-fluid w-50 d-none d-sm-block"
+              style="border-radius:50%; max-width:300px; height:auto;"
+            >
+        </div>
+    </div>
+</section>
+{% endblock %}
