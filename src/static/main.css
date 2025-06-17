@@ -11973,4 +11973,96 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+.bg-dark {
+  background-color: #2e2e2e !important;
+}
+
+:root {
+  --primary: #ffc107;
+  --secondary: #656b70;
+  --tertiary: #2e2e2e;
+  --navColor: #201d1d;
+}
+
+.navbar {
+  background-color: var(--navColor) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+.card-techstack {
+  border-width: 3px;
+  border-style: solid;
+  border-color: #2e2e2e;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, #71787d 0%, #545454 100%);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  min-width: 200px;
+  max-width: 200px;
+  margin-right: 16px;
+}
+.card-techstack .card-body {
+  padding: 0.75rem 1rem;
+  justify-content: center;
+  color: white;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card-techstack .card-body .card-text {
+  margin: 0;
+  line-height: 1.2;
+}
+.card-techstack:hover {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+  transform: translateY(-4px) scale(1.04);
+  background: linear-gradient(135deg, #ffdb6d 0%, #ffc107 100%);
+  border-color: #ffc107;
+  cursor: pointer;
+}
+
+.card-techstack:hover .card-body {
+  color: var(--tertiary);
+}
+
+.card-techstack img {
+  max-width: 50px;
+  height: auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.techstack-marquee {
+  background-color: var(--tertiary);
+  font-size: 15px;
+  padding-block: 8px;
+  padding-top: 1.25rem;
+  overflow: hidden;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  align-items: center;
+  --gap: 20px;
+  display: flex;
+  gap: var(--gap);
+}
+
+.techstack-marquee ul {
+  align-items: center;
+  list-style: none;
+  flex-shrink: 0;
+  min-width: 100%;
+  display: flex;
+  gap: var(--gap);
+  animation: scroll 40s linear infinite;
+}
+
+@keyframes scroll {
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
 }/*# sourceMappingURL=main.css.map */

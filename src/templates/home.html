@@ -1,11 +1,12 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
 %}
 <section
-  class="bg-dark text-light p-3 text-center text-sm-start"
+  class="text-light p-3 text-center text-sm-start"
   style="
     border-bottom-style: solid;
     border-color: #ffc107;
     border-width: 0 0 2px 0;
+    background-color: var(--tertiary)
   "
 >
   <div class="container">
@@ -38,34 +39,85 @@
   </div>
 </section>
 
+
+
 <!--Cards for techstack-->
-<section class="bg-secondary text-light text-center">
-  <div class="container-fluid ps-1">
-    <div class="row justify-content-around">
-      <!--Jinja to the rescue-->
-      {% for img in tech_images %}
-      <div class="col-md-2 col-lg-1 mb-3 mt-3">
-        <div class="card h-150 bg-secondary border border-3 border border-dark" style="width: 115%">
-          <div class="row g-0 align-items-center">
-            <div class="col-4 d-flex align-items-center ps-1">
-              <img
-                src="{{ url_for('static', filename=img) }}"
-                class="img-fluid rounded-start img-black"
-                alt="ruh-roh raggy"
-              />
-            </div>
-            <div class="col-8">
-              <div class="card-body text-start">
-                <p class="card-text">Lore</p>
+<section>
+  <div class="collapse show techstack-marquee" id="techStackMarquee">
+    <ul>
+      {% for section in techstack %}
+        {% for img in section["items"] %}
+          <li class="card-techstack">
+            <img src="{{ url_for('static', filename=img['img']) }}" alt="{{ img['name'] }}">
+            <span class="card-body">{{ img['name'] }}</span>
+          </li>
+        {% endfor %}
+      {% endfor %}
+    </ul>
+    <ul aria-hidden="true">
+      {% for section in techstack %}
+        {% for img in section["items"] %}
+          <li class="card-techstack">
+            <img src="{{ url_for('static', filename=img['img']) }}" alt="{{ img['name'] }}">
+            <span class="card-body">{{ img['name'] }}</span>
+          </li>
+        {% endfor %}
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+
+<!-- Show all techstack cards -->
+<div class="container-fluid px-0">
+  <div class="w-100 text-light" style="background-color: var(--navColor);">
+    <!-- Clickable header -->
+    <div
+      id="techstack-toggle-header"
+      class="py-4 px-3"
+      style="cursor: pointer; user-select: none;"
+    >
+      <h5 class="text-center mb-2 mb-0" id="techstack-toggle-text">
+        See full techstack<span class="float-end">&#9660;</span>
+      </h5>
+    </div>
+    <!-- Collapsible content -->
+    <div class="collapse" id="aboutTechStack">
+      <div class="px-3 pb-4">
+        <div class="container-fluid ps-1">
+          <div class="collapse show" id="AllCards" style = "justify-content: start;">
+            {% for section in techstack %}
+              <h4 class="mt-4 mb-3 text-light">{{ section.section }}</h4>
+              <div class="row justify-content-start">
+                {% for img in section["items"] %}
+                  <div class="col-md-2 col-lg-2 mb-2 mt-2">
+                    <div class="card card-techstack" style="min-width: 20%;">
+                      <div class="row g-0 align-items-center">
+                        <div class="col-4 d-flex align-items-center">
+                          <img
+                            src="{{ url_for('static', filename=img['img']) }}"
+                            class="img-fluid rounded-start"
+                            alt="{{ img['name'] }}"
+                            style="padding: 0.5rem;"
+                          />
+                        </div>
+                        <div class="col-8">
+                          <div class="card-body text-start">
+                            <p class="card-text">{{ img['name'] }}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
               </div>
-            </div>
+            {% endfor %}
           </div>
         </div>
       </div>
-      {% endfor %}
     </div>
   </div>
-</section>
+</div>
 
 <!--Carousel for projects-->
 <section
@@ -83,7 +135,6 @@
         <div
           id="projectCarousel"
           class="carousel slide"
-          data-bs-ride="carousel"
         >
           <div class="carousel-indicators">
             <button
@@ -161,13 +212,59 @@
     </div>
   </div>
 </section>
-<!--Tech stack cards-->
 
-<!--for blackening svgs-->
-<style>
-.img-black {
-  filter: brightness(0) saturate(100%);
-}
 
-</style>
+<!--Man I Hate Javascript so damn much-->
+ 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const header = document.getElementById('techstack-toggle-header');
+  const marquee = document.getElementById('techStackMarquee');
+  const aboutTechStack = document.getElementById('aboutTechStack');
+  let isTransitioning = false;
+
+  if (header && marquee && aboutTechStack) {
+    header.addEventListener('click', function (e) {
+      if (isTransitioning) {
+        e.preventDefault();
+        return;
+      }
+      // If marquee is visible, collapse it (then expand header)
+      if (marquee.classList.contains('show')) {
+        isTransitioning = true;
+        const bsCollapse = bootstrap.Collapse.getOrCreateInstance(marquee);
+        bsCollapse.hide();
+      }
+      // If header is visible, just collapse it (then show marquee after delay)
+      else if (aboutTechStack.classList.contains('show')) {
+        isTransitioning = true;
+        const bsCollapseHeader = bootstrap.Collapse.getOrCreateInstance(aboutTechStack);
+        bsCollapseHeader.hide();
+      }
+    });
+
+    // When marquee finishes collapsing, expand the header section
+    marquee.addEventListener('hidden.bs.collapse', function () {
+      setTimeout(function () {
+        const bsCollapseHeader = bootstrap.Collapse.getOrCreateInstance(aboutTechStack);
+        if (!aboutTechStack.classList.contains('show')) {
+          bsCollapseHeader.show();
+        }
+        isTransitioning = false;
+      }, 100); // Adjust delay as needed
+    });
+
+    // When header finishes collapsing, expand the marquee after a delay
+    aboutTechStack.addEventListener('hidden.bs.collapse', function () {
+      setTimeout(function () {
+        const bsCollapseMarquee = bootstrap.Collapse.getOrCreateInstance(marquee);
+        if (!marquee.classList.contains('show')) {
+          bsCollapseMarquee.show();
+        }
+        isTransitioning = false;
+      }, 100); // Adjust delay as needed
+    });
+  }
+});
+</script>
 {% endblock %}

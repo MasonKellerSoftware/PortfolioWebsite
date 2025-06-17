@@ -2,4 +2,106 @@
 $primary: #ffc107; // Your custom primary color
 $secondary: #656b70; // Your custom secondary color
 $tertiary: #2e2e2e; // Your custom tertiary color
+
 @import "../../node_modules/bootstrap/scss/bootstrap";
+
+.bg-dark {
+  background-color: $tertiary !important;
+}
+
+:root{
+    --primary: #ffc107; // Your custom primary color
+    --secondary: #656b70; // Your custom secondary color
+    --tertiary: #2e2e2e; // Your custom tertiary color
+    --navColor: #201d1d;
+}
+
+.navbar {
+  background-color: var(--navColor) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+.card-techstack {
+  border-width: 3px;
+  border-style: solid;
+  border-color: $tertiary;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, lighten($secondary, 5%) 0%, lighten($tertiary, 15%)100%);
+  color: #fff; // or use $primary or another variable if you want
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+
+  .card-body {
+    padding: 0.75rem 1rem;
+    justify-content: center;
+    color: white;
+    font-size: clamp(0.9rem, 2.5vw, 1.0rem);  // Responsive font size
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    .card-text {
+      margin: 0;  // Remove default paragraph margin
+      line-height: 1.2;  // Adjust line height for better fit
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    transform: translateY(-4px) scale(1.04);
+    background: linear-gradient(135deg, lighten($primary, 20%) 0%, $primary 100%);
+    border-color: $primary;
+
+    cursor: pointer;
+  }
+
+  min-width: 200px;
+  max-width: 200px;
+  margin-right: 16px; // Use a fixed margin, not Bootstrap's mx-2
+}
+
+.card-techstack:hover .card-body {
+  color: var(--tertiary);
+}
+
+.card-techstack img {
+  max-width: 50px;
+  height: auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 10px
+}
+
+
+.techstack-marquee {
+  background-color: var(--tertiary);
+  font-size: 15px;
+  padding-block: 8px;
+  padding-top:1.25rem;
+  overflow: hidden;
+  user-select: none;
+  align-items: center;
+
+  --gap: 20px;
+  display: flex;
+  gap: var(--gap);
+}
+
+.techstack-marquee ul {
+  align-items: center;
+  list-style: none;
+  flex-shrink: 0;
+  min-width: 100%;
+  display: flex;
+  gap: var(--gap);
+
+  animation: scroll 40s linear infinite;
+}
+
+
+@keyframes scroll {
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
