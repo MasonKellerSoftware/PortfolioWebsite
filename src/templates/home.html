@@ -13,7 +13,7 @@
     <div class="d-sm-flex align-items-center justify-content-between">
       <div>
         <h1 class="mb-0"><span class="text-primary">Mason Keller</span></h1>
-        <h5 class="text-secondary mt-0 mb-0">Aspiring Software Engineer</h5>
+        <h5 class="text-secondary mt-0 mb-0">Software Engineer</h5>
         <p class="text-secondary mt-0 font-size:16px">Birmingham, AL</p>
         <p
           style="font-size: 16px; padding-right: 10%; padding-bottom: 3%"
@@ -24,8 +24,8 @@
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.
         </p>
-        <button class="btn btn-primary btn-lg" style = "color:rgba(31, 30, 30, 0.85)">Contact Me</button>
-        <button class="btn btn-secondary btn-lg" style = "color: rgba(255, 255, 255, 0.85)">Download Resume</button>
+        <a href="mailto:your.email@example.com?subject=Portfolio Contact" class="btn btn-primary btn-lg" style="color:rgba(31, 30, 30, 0.85); text-decoration: none;">Contact Me</a>
+        <a href="{{ url_for('static', filename='resume.pdf') }}" download="Mason_Keller_Resume.pdf" class="btn btn-secondary btn-lg" style="color: rgba(255, 255, 255, 0.85); text-decoration: none;">Download Resume</a>
         <a href = 'https://www.linkedin.com/in/mason-keller-53a129362', target = '_blank'>
           <button class = "btn btn-lg" style = "background-color: var(--LinkendIn); color:rgba(255, 255, 255, 0.85)">
             <img src="{{ url_for('static', filename='LinkedIn.svg') }}" style = "width: 20px;">
@@ -125,7 +125,7 @@
   </div>
 </div>
 
-  <!--Carousel for projects-->
+  <!--Containers for the carousel and timeline-->
 <div class="container-fluid px-0">
   <div class="row g-0 d-flex align-items-stretch" style="min-height: 400px;">
     <div class="col-md-6 d-flex">
@@ -287,6 +287,84 @@
     </div>
   </div>
 </div>
+<!--About section-->
+<div id = "aboutSection">
+  <div class = "p-0 m-0" style="background-color: var(--navColor);">
+    <h5 class="text-light text-center p-3 mb-0">
+      About
+    </h5>
+  </div>
+  <div style="background-color: var(--tertiary); padding:20px;">
+    <div class="container-fluid">
+      <div class="row g-2 text-start">
+        <!--left div-->
+        <div class="col-md-6 pe-3"> 
+          <div class="about-card">
+            <h4 class="text-primary mb-3">About Me</h4>
+            <p class="about-card-text">
+              My name is Mason Keller, and I am currently a rising Senior majoring in Computer Science at Auburn University. I know every resume and portfolio website 
+              says that they have a passion for coding, but I genuinely do. I have been coding in some shape or form since second grade, where we were introduced to the website
+              Scratch. While most kids just completed the lessons, I eventually started to create my own projects and games. I have always loved the idea of creating something from nothing, and coding allows me to do just that.
+              As I grew older, I moved into text based languages, at the time primarily Python and Java. My senior
+              year of high school I had the opportunity to do independent research at the University of Alabama, where I researched and developed a program to demonstrate the potential and actual benefits of computer science in the field of automotive safety.
+              I didn't expect to recieve any recognition for my work, but I ended up being first honorable mention in the state. I would eventually recieve the department award for Computer Science at my high school
+            </p>
+          </div>
+        </div>
+        <!--right div-->
+        <div class="col-md-6 ps-3">
+          <div class="about-card">
+            <h4 class="text-primary mb-3">About this website</h4>
+            <p class="about-card-text">
+              The idea for this website came about when applying for internships. I had been told multiple times that I needed to have projects that demonstrate my
+              abilities and skills. The most common suggestion I receieved was to create a portfolio website. The idea seemed daunting at the time, I had never seriously
+              touched web development before. However, upon doing some research I found out that there were multitudes of frameworks and tools that made web dev much simplier than
+              I had imagined. This website is built primarily with Flask, a lightweight Python web framework, and utilizes Bootstrap for responsive design. I went
+              with Flask because Python is one of the easiest languages to write and learn new concepts with, and I went with Bootstrap because the sheer amount of resources
+              available on the framework. While it is definitely not the most complex or visually impressive, I still am proud of the work I put into it. It has taught me a lot about web development,
+              and I hope to continue to improve both my skills and this website in the future.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class = "footer text-light" style = "background-color: var(--navColor); text-align: center;">
+  <div class="container-flex">
+    <div class = "row g-0">
+      <div class = "col-4" style = "text-align: left;">
+        <p class = "p-2 mb-0">
+          Keller-Software.com
+        </p>
+      </div>
+      <div class="col-4">
+        <!--Center-->
+        <p class = "p-2 mb-0">
+          Built by Mason Keller
+        </p>
+    </div>
+      <div class="col-4 d-flex justify-content-end">
+        <a href = 'https://github.com/MasonKellerSoftware' target = '_blank'>
+          <button class = "btn btn-link mt-2 mb-2 me-2" style = "background-color: var(--secondary);">
+            <img src="{{ url_for('static', filename='GitHub.svg') }}" alt="GitHub" style = "width: 30px;">
+          </button>
+          </a>
+        <a href = 'https://www.instagram.com/masonmk10/' target = '_blank'>
+          <button class = "btn btn-link mt-2 mb-2 me-2" style = "background-color: var(--secondary);">
+            <img src="{{ url_for('static', filename='Instagram-53.svg') }}" alt="LinkedIn" style = "width: 30px;">
+          </button>
+          </a>
+          <a href = 'https://www.linkedin.com/in/mason-keller-53a129362' target = '_blank'>
+        <button class = "btn btn-link mt-2 mb-2 me-2" style = "background-color: var(--secondary);">
+          <img src="{{ url_for('static', filename='LinkedInBlack.svg') }}" alt="LinkedIn" style = "width: 30px;">
+        </a>
+        </button>
+      </div>
+  </div>
+</footer>
+
 
 
 <!--Man I Hate Javascript so damn much-->

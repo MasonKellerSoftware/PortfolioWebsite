@@ -136,7 +136,6 @@ $tertiary: #2e2e2e; // Your custom tertiary color
   }
 }
 
-// Remove timeline-marker styles completely
 
 .timeline-content {
   background: linear-gradient(135deg, lighten($tertiary, 12%) 0%, lighten($tertiary, 8%) 100%);
@@ -237,7 +236,7 @@ $tertiary: #2e2e2e; // Your custom tertiary color
 
 // Work experience section styles
 .work-experience-section {
-  background: linear-gradient(135deg, $tertiary 0%, lighten($tertiary, 8%) 100%);
+  background: var(--tertiary);
   color: white;
   padding: 24px 0;
   min-height: 400px;
@@ -293,5 +292,46 @@ $tertiary: #2e2e2e; // Your custom tertiary color
     &::-webkit-scrollbar-corner {
       background: transparent;
     }
+  }
+}
+
+.about-card {
+  background: linear-gradient(135deg, lighten($tertiary, 12%) 0%, lighten($tertiary, 8%) 100%);
+  border: 2px solid lighten($tertiary, 20%);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, $primary 0%, lighten($primary, 20%) 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    border-color: rgba($primary, 0.6);
+    
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+
+  .about-card-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: lighten($secondary, 30%);
+    margin-bottom: 18px;
   }
 }

@@ -12185,7 +12185,7 @@ textarea.form-control-lg {
 }
 
 .work-experience-section {
-  background: linear-gradient(135deg, #2e2e2e 0%, #424242 100%);
+  background: var(--tertiary);
   color: white;
   padding: 24px 0;
   min-height: 400px;
@@ -12235,4 +12235,41 @@ textarea.form-control-lg {
 }
 .timeline-container .timeline::-webkit-scrollbar-corner {
   background: transparent;
+}
+
+.about-card {
+  background: linear-gradient(135deg, #4d4d4d 0%, #424242 100%);
+  border: 2px solid #616161;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.about-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ffc107 0%, #ffdb6d 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.about-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 193, 7, 0.6);
+}
+.about-card:hover::before {
+  transform: scaleX(1);
+}
+.about-card .about-card-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #b3b7bb;
+  margin-bottom: 18px;
 }/*# sourceMappingURL=main.css.map */
