@@ -24,8 +24,14 @@
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.
         </p>
-        <button class="btn btn-primary btn-lg">Contact Me</button>
-        <button class="btn btn-secondary btn-lg">Download Resume</button>
+        <button class="btn btn-primary btn-lg" style = "color:rgba(31, 30, 30, 0.85)">Contact Me</button>
+        <button class="btn btn-secondary btn-lg" style = "color: rgba(255, 255, 255, 0.85)">Download Resume</button>
+        <a href = 'https://www.linkedin.com/in/mason-keller-53a129362', target = '_blank'>
+          <button class = "btn btn-lg" style = "background-color: var(--LinkendIn); color:rgba(255, 255, 255, 0.85)">
+            <img src="{{ url_for('static', filename='LinkedIn.svg') }}" style = "width: 20px;">
+            LinkedIn
+          </button>
+        </a>
       </div>
 
       <!--Flask function for displaying images-->
@@ -119,99 +125,168 @@
   </div>
 </div>
 
-<!--Carousel for projects-->
-<section
-  class="bg-secondary"
-  style="
-    padding-top: 20px;
-    padding-left: 0;
-    padding-right: 0;
-    padding-bottom: 20px;
-  "
->
-  <div class="container-fluid">
-    <div class="row g-0">
-      <div class="col-md-8">
-        <div
-          id="projectCarousel"
-          class="carousel slide"
-        >
-          <div class="carousel-indicators">
-            <button
-              type="button"
-              data-bs-target="#projectCarousel"
-              data-bs-slide-to="0"
-              class="active"
-              aria-current="true"
-              aria-label="Slide 1"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#projectCarousel"
-              data-bs-slide-to="1"
-              aria-label="Slide 2"
-            ></button>
+  <!--Carousel for projects-->
+<div class="container-fluid px-0">
+  <div class="row g-0 d-flex align-items-stretch" style="min-height: 400px;">
+    <div class="col-md-6 d-flex">
+      <section 
+        class="bg-secondary d-flex flex-column w-100"
+        style="
+          padding-top: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-bottom: 20px;
+          min-height: 400px;
+        "
+      >
+        <div class="container-fluid">
+          <div class="row g-0">
+            <div class="col-12">
+              <div
+                id="projectCarousel"
+                class="carousel slide"
+              >
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#projectCarousel"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#projectCarousel"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <a href = 'https://github.com/MasonKellerSoftware/PortfolioWebsite' target = '_blank'>
+                    <img
+                      src="{{ url_for('static', filename='PortoflioSitePNG.png') }}"
+                      class="d-block w-100"
+                      alt="Project 1"
+                    />
+                    </a>
+                  <div class="carousel-caption text-light">
+                    <h5>This Website</h5>
+                    <p>View the source code</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="{{ url_for('static', filename='placeholder.png') }}"
+                    class="d-block w-100"
+                    alt="Project 2"
+                  />
+                  <div class="carousel-caption text-dark">
+                    <h5>Project2</h5>
+                    <p>Some Placeholder text</p>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#projectCarousel"
+                data-bs-slide="prev"
+              >
+                <span class="carousel-control-prev-icon"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#projectCarousel"
+                data-bs-slide="next"
+              >
+                <span class="carousel-control-next-icon"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
           </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img
-                src="{{ url_for('static', filename='placeholder.png') }}"
-                class="d-block w-100"
-                alt="Project 1"
-              />
-              <div class="carousel-caption text-dark">
-                <h5>Project1</h5>
-                <p>Some Placeholder text</p>
+        </div>
+      </section>
+    </div>
+    <!--Timeline section-->
+    <div class="col-md-6 d-flex">
+      <section class="work-experience-section d-flex flex-column w-100">
+        <div class="container-fluid d-flex flex-column timeline-container">
+          <h3 class="text-center px-4 flex-shrink-0">Work Experience</h3>
+          <div class="timeline flex-shrink-1 px-4">
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h5 class="timeline-title">Software Engineering Intern</h5>
+                <h6 class="timeline-company text-primary">OrthoTOM, The Orthopedic Marketplace</h6>
+                <p class="timeline-date text-secondary">May 2025 - Present</p>
+                <p class="timeline-description">
+                  Tasked with revitalizing a deprecated testing suite and ensuring total test coverage for the application as well as implementing new features. Collaborated
+                  with senior developers to further understand react and real world software development practices.
+                </p>
+                <div class="timeline-skills">
+                  <span class="skill-tag">Python</span>
+                  <span class="skill-tag">Selenium</span>
+                  <span class="skill-tag">React</span>
+                  <span class="skill-tag">JavaScript</span>
+                </div>
               </div>
             </div>
-            <div class="carousel-item">
-              <img
-                src="{{ url_for('static', filename='placeholder.png') }}"
-                class="d-block w-100"
-                alt="Project 2"
-              />
-              <div class="carousel-caption text-dark">
-                <h5>Project2</h5>
-                <p>Some Placeholder text</p>
+            
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h5 class="timeline-title">Tutor</h5>
+                <h6 class="timeline-company text-primary">Auburn University</h6>
+                <p class="timeline-date text-secondary">August 2024 - December 2024</p>
+                <p class="timeline-description">
+                  Helped tutor younger Computer Science students in various subjects, and languages, as well as teaching the best practices for software development.
+                </p>
+                <div class="timeline-skills">
+                  <span class="skill-tag">Python</span>
+                  <span class="skill-tag">C++</span>
+                  <span class="skill-tag">Java</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h5 class="timeline-title">Independent Research</h5>
+                <h6 class="timeline-company text-primary">University of Alabama</h6>
+                <p class="timeline-date text-secondary">August 2021 - May 2022 </p>
+                <p class="timeline-description">
+                  Researced and developed a program to demonstrate the potential and actual benefits of computer science in the field of automotive safety
+                </p>
+                <div class="timeline-skills">
+                  <span class="skill-tag">Python</span>
+                  <span class="skill-tag">SQLAlchemy</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h5 class="timeline-title">Computer Science Student</h5>
+                <h6 class="timeline-company text-primary">Auburn University</h6>
+                <p class="timeline-date text-secondary">August 2022 - Current</p>
+                <p class="timeline-description">
+                  Leaning the fundamentals of computer science, including data structures, algorithms, and software development practices. Participating in various projects to apply theoretical knowledge in practical scenarios.
+                </p>
+                <div class="timeline-skills">
+                  <span class="skill-tag">Algorithims</span>
+                  <span class="skill-tag">Software Engineering</span>
+                  <span class="skill-tag">Data Structures</span>
+                </div>
               </div>
             </div>
           </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#projectCarousel"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#projectCarousel"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
         </div>
-      </div>
-      <div class="col-md-4 d-flex">
-        <div class="text-left text-light">
-          <p class="lead mx-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </div>
-      </div>
+      </section>
     </div>
   </div>
-</section>
+</div>
 
 
 <!--Man I Hate Javascript so damn much-->
@@ -229,13 +304,11 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
         return;
       }
-      // If marquee is visible, collapse it (then expand header)
       if (marquee.classList.contains('show')) {
         isTransitioning = true;
         const bsCollapse = bootstrap.Collapse.getOrCreateInstance(marquee);
         bsCollapse.hide();
       }
-      // If header is visible, just collapse it (then show marquee after delay)
       else if (aboutTechStack.classList.contains('show')) {
         isTransitioning = true;
         const bsCollapseHeader = bootstrap.Collapse.getOrCreateInstance(aboutTechStack);
@@ -243,7 +316,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    // When marquee finishes collapsing, expand the header section
     marquee.addEventListener('hidden.bs.collapse', function () {
       setTimeout(function () {
         const bsCollapseHeader = bootstrap.Collapse.getOrCreateInstance(aboutTechStack);
@@ -251,10 +323,9 @@ document.addEventListener('DOMContentLoaded', function () {
           bsCollapseHeader.show();
         }
         isTransitioning = false;
-      }, 100); // Adjust delay as needed
+      }, 100);
     });
 
-    // When header finishes collapsing, expand the marquee after a delay
     aboutTechStack.addEventListener('hidden.bs.collapse', function () {
       setTimeout(function () {
         const bsCollapseMarquee = bootstrap.Collapse.getOrCreateInstance(marquee);
@@ -262,9 +333,40 @@ document.addEventListener('DOMContentLoaded', function () {
           bsCollapseMarquee.show();
         }
         isTransitioning = false;
-      }, 100); // Adjust delay as needed
+      }, 100);
     });
   }
 });
+</script>
+
+<script>
+  //I hate this stupid function so much this took way to long to figure out
+function adjustTimelineHeight() {
+  const timelineItems = document.querySelectorAll('.timeline-item');
+  const timeline = document.querySelector('.timeline');
+  
+  console.log(`Found ${timelineItems.length} timeline items`);
+  
+  if (timeline && timelineItems.length > 0) {
+    let totalHeight = 0;
+    timelineItems.forEach((item, index) => {
+      const itemHeight = item.offsetHeight;
+      totalHeight += itemHeight;
+    });
+
+    const finalHeight = totalHeight + 75; //hundred extra pixels, should be dynamic but I'm lazy
+    
+    timeline.style.setProperty('--timeline-height', `${finalHeight}px`);
+  } else {
+    console.log('Timeline or timeline items not found');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(adjustTimelineHeight, 200);
+});
+
+window.addEventListener('resize', adjustTimelineHeight);
+window.addEventListener('load', adjustTimelineHeight);
 </script>
 {% endblock %}

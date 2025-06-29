@@ -11983,12 +11983,11 @@ textarea.form-control-lg {
   --secondary: #656b70;
   --tertiary: #2e2e2e;
   --navColor: #201d1d;
+  --LinkendIn: #0069a2;
 }
 
 .navbar {
   background-color: var(--navColor) !important;
-  background-image: none !important;
-  box-shadow: none !important;
 }
 
 .card-techstack {
@@ -12065,4 +12064,175 @@ textarea.form-control-lg {
   to {
     transform: translateX(calc(-100% - var(--gap)));
   }
+}
+.timeline {
+  position: relative;
+  padding-left: 20px;
+  padding-bottom: 50px;
+  height: 100%;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 0;
+  height: var(--timeline-height, 100%);
+  width: 4px;
+  background: linear-gradient(180deg, #ffc107 0%, #656b70 100%);
+  border-radius: 2px;
+  z-index: 1;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+}
+.timeline-item:last-child {
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+}
+
+.timeline-content {
+  background: linear-gradient(135deg, #4d4d4d 0%, #424242 100%);
+  border: 2px solid #616161;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.timeline-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ffc107 0%, #ffdb6d 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.timeline-content:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 193, 7, 0.6);
+}
+.timeline-content:hover::before {
+  transform: scaleX(1);
+}
+
+.timeline-title {
+  color: #ffc107;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.timeline-company {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #656b70;
+}
+.timeline-company.text-primary {
+  color: #2e2e2e !important;
+}
+
+.timeline-date {
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  opacity: 0.85;
+  font-weight: 500;
+}
+.timeline-date.text-secondary {
+  color: #989ea3 !important;
+}
+
+.timeline-description {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 18px;
+  color: #b3b7bb;
+}
+
+.timeline-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.skill-tag {
+  background: linear-gradient(135deg, #ffc107 0%, #ffcb30 100%);
+  color: #2e2e2e;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.skill-tag:hover {
+  background: linear-gradient(135deg, #ffd044 0%, #ffdb6d 100%);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 193, 7, 0.6);
+}
+
+.work-experience-section {
+  background: linear-gradient(135deg, #2e2e2e 0%, #424242 100%);
+  color: white;
+  padding: 24px 0;
+  min-height: 400px;
+  border-radius: 0;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.work-experience-section h3, .work-experience-section .h3 {
+  color: white;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 1.8rem;
+}
+@media (max-width: 768px) {
+  .work-experience-section h3, .work-experience-section .h3 {
+    font-size: 1.5rem;
+  }
+}
+
+.timeline-container {
+  height: 100%;
+  overflow: hidden;
+}
+.timeline-container .timeline {
+  overflow-y: auto;
+  min-height: 250px;
+  height: 0;
+  flex-grow: 1;
+  padding-right: 12px;
+}
+.timeline-container .timeline::-webkit-scrollbar {
+  width: 8px;
+}
+.timeline-container .timeline::-webkit-scrollbar-track {
+  background: rgba(59, 59, 59, 0.5);
+  border-radius: 4px;
+  margin: 4px 0;
+}
+.timeline-container .timeline::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ffc107 0%, #ffce3a 100%);
+  border-radius: 4px;
+  border: 1px solid rgba(46, 46, 46, 0.3);
+}
+.timeline-container .timeline::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ffcb30 0%, #ffd863 100%);
+  box-shadow: 0 0 6px rgba(255, 193, 7, 0.4);
+}
+.timeline-container .timeline::-webkit-scrollbar-corner {
+  background: transparent;
 }/*# sourceMappingURL=main.css.map */
